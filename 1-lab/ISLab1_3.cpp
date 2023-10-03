@@ -7,7 +7,7 @@ int main() {
 
     std::cout << "Enter 15 words:\n";
 
-    for (int i = 0; i < 5; ++i) {
+    for (int i = 0; i < 15; ++i) {
         std::string word;
         std::cin >> word;
         words.push_back(word);

@@ -12,7 +12,7 @@ int main() {
 
     std::cout << "Enter 10 names and numbers of study groups:\n";
 
-    for (int i = 1; i <= 20; ++i) {
+    for (int i = 1; i <= 10; ++i) {
         StudyGroup group;
         group.groupName = "Group " + std::to_string(i);
         
