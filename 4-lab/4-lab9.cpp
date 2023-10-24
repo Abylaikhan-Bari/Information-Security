@@ -46,7 +46,7 @@ void saveRecordToFile(const Record& record, const std::string& filename) {
 
 int main() {
     int choice;
-    std::string filename = "table.txt"; // Имя файла для сохранения данных
+    std::string filename = "table9.txt"; // Имя файла для сохранения данных
 
     while (true) {
         std::cout << "Меню:" << std::endl;
