@@ -2,10 +2,10 @@
 #include <string>
 #include <cctype>
 
-// Функция для подсчета числа предлогов в предложении
+// Function to count the number of prepositions in the sentence
 int countPrepositions(const std::string& sentence) {
-    // Список предлогов (может быть расширен)
-    std::string prepositions[] = {"в", "на", "под", "за", "с"};
+    // List of prepositions (can be expanded)
+    std::string prepositions[] = {"in", "on", "under", "behind", "with"};
 
     int count = 0;
     std::string word;
@@ -25,7 +25,7 @@ int countPrepositions(const std::string& sentence) {
     return count;
 }
 
-// Функция для подсчета числа знаков препинания в предложении
+// Function to count the number of punctuation marks in the sentence
 int countPunctuationMarks(const std::string& sentence) {
     int count = 0;
     for (char c : sentence) {
@@ -36,7 +36,7 @@ int countPunctuationMarks(const std::string& sentence) {
     return count;
 }
 
-// Функция для подсчета числа гласных букв в предложении
+// Function to count the number of vowels in the sentence
 int countVowels(const std::string& sentence) {
     int count = 0;
     for (char c : sentence) {
@@ -48,7 +48,7 @@ int countVowels(const std::string& sentence) {
     return count;
 }
 
-// Функция для подсчета числа согласных букв в предложении
+// Function to count the number of consonants in the sentence
 int countConsonants(const std::string& sentence) {
     int count = 0;
     for (char c : sentence) {
@@ -60,7 +60,7 @@ int countConsonants(const std::string& sentence) {
     return count;
 }
 
-// Функция для подсчета числа слов в предложении, не считая предлоги
+// Function to count the number of words in the sentence, excluding prepositions
 int countWordsWithoutPrepositions(const std::string& sentence) {
     int count = 0;
     std::string word;
@@ -68,8 +68,8 @@ int countWordsWithoutPrepositions(const std::string& sentence) {
         if (isalpha(c)) {
             word += c;
         } else if (!word.empty()) {
-            // Проверяем, является ли слово предлогом
-            std::string prepositions[] = {"в", "на", "под", "за", "с"};
+            // Check if the word is a preposition
+            std::string prepositions[] = {"in", "on", "under", "behind", "with"};
             bool isPreposition = false;
             for (const std::string& preposition : prepositions) {
                 if (word == preposition) {
@@ -86,7 +86,7 @@ int countWordsWithoutPrepositions(const std::string& sentence) {
     return count;
 }
 
-// Функция для подсчета числа вхождений заданного слова в предложение
+// Function to count the number of occurrences of a given word in the sentence
 int countOccurrences(const std::string& sentence, const std::string& wordToCount) {
     int count = 0;
     size_t pos = 0;
@@ -99,50 +99,50 @@ int countOccurrences(const std::string& sentence, const std::string& wordToCount
 
 int main() {
     std::string sentence;
-    std::cout << "Введите произвольное предложение: ";
+    std::cout << "Enter sentence: ";
     std::getline(std::cin, sentence);
 
     int choice;
     while (true) {
-        std::cout << "Меню обработки предложения:" << std::endl;
-        std::cout << "1. Подсчитать число предлогов" << std::endl;
-        std::cout << "2. Подсчитать число знаков препинания" << std::endl;
-        std::cout << "3. Подсчитать число гласных" << std::endl;
-        std::cout << "4. Подсчитать число согласных" << std::endl;
-        std::cout << "5. Подсчитать количество слов, не считая предлоги" << std::endl;
-        std::cout << "6. Подсчитать число вхождений заданного слова" << std::endl;
-        std::cout << "7. Выйти" << std::endl;
-        std::cout << "Выберите действие: ";
+        std::cout << "Sentence processing menu:" << std::endl;
+        std::cout << "1. Count the number of prepositions" << std::endl;
+        std::cout << "2. Count the number of punctuation marks" << std::endl;
+        std::cout << "3. Count the number of vowels" << std::endl;
+        std::cout << "4. Count the number of consonants" << std::endl;
+        std::cout << "5. Count the number of words, excluding prepositions" << std::endl;
+        std::cout << "6. Count the number of occurrences of a given word" << std::endl;
+        std::cout << "7. Exit" << std::endl;
+        std::cout << "Select an action: ";
         std::cin >> choice;
 
         switch (choice) {
             case 1:
-                std::cout << "Число предлогов: " << countPrepositions(sentence) << std::endl;
+                std::cout << "Number of prepositions: " << countPrepositions(sentence) << std::endl;
                 break;
             case 2:
-                std::cout << "Число знаков препинания: " << countPunctuationMarks(sentence) << std::endl;
+                std::cout << "Number of punctuation marks: " << countPunctuationMarks(sentence) << std::endl;
                 break;
             case 3:
-                std::cout << "Число гласных: " << countVowels(sentence) << std::endl;
+                std::cout << "Number of vowels: " << countVowels(sentence) << std::endl;
                 break;
             case 4:
-                std::cout << "Число согласных: " << countConsonants(sentence) << std::endl;
+                std::cout << "Number of consonants: " << countConsonants(sentence) << std::endl;
                 break;
             case 5:
-                std::cout << "Число слов, не считая предлоги: " << countWordsWithoutPrepositions(sentence) << std::endl;
+                std::cout << "Number of words, excluding prepositions: " << countWordsWithoutPrepositions(sentence) << std::endl;
                 break;
             case 6: {
                 std::string wordToCount;
-                std::cout << "Введите слово для подсчета: ";
+                std::cout << "Enter a word to count: ";
                 std::cin.ignore();
                 std::getline(std::cin, wordToCount);
-                std::cout << "Число вхождений слова '" << wordToCount << "': " << countOccurrences(sentence, wordToCount) << std::endl;
+                std::cout << "Number of occurrences of the word '" << wordToCount << "': " << countOccurrences(sentence, wordToCount) << std::endl;
                 break;
             }
             case 7:
                 return 0;
             default:
-                std::cout << "Некорректный выбор. Попробуйте еще раз." << std::endl;
+                std::cout << "Invalid choice. Please try again." << std::endl;
         }
     }
 

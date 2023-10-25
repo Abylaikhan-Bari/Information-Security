@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-// Функция для разбиения интернет-адреса на сервер, каталоги и имя файла
+// Function to split a URL into server, directories, and file name
 void splitURL(const std::string& url, std::string& server, std::string& directories, std::string& fileName) {
     size_t protocolEnd = url.find("://");
     size_t serverEnd = url.find('/', protocolEnd + 3);
@@ -15,15 +15,15 @@ int main() {
     std::string url;
     std::string server, directories, fileName;
 
-    std::cout << "Введите интернет-адрес файла в формате 'http://www.сервер.ш\\каталог1\\каталог2\\...имя.расширение': ";
+    std::cout << "Enter the internet address of the file in the format 'http://www.server.com\\directory1\\directory2\\...file.extension': ";
     std::cin.ignore();
     std::getline(std::cin, url);
 
     splitURL(url, server, directories, fileName);
 
-    std::cout << "Сервер: " << server << std::endl;
-    std::cout << "Каталоги: " << directories << std::endl;
-    std::cout << "Имя файла: " << fileName << std::endl;
+    std::cout << "Server: " << server << std::endl;
+    std::cout << "Directories: " << directories << std::endl;
+    std::cout << "File Name: " << fileName << std::endl;
 
     return 0;
 }

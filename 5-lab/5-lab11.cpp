@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-// Функция для подсчета глубины вложенности подкаталогов
+// Function to count the depth of nested subdirectories
 int countDirectoryDepth(const std::string& directories) {
     int depth = 0;
     size_t pos = directories.find('\\');
@@ -16,7 +16,7 @@ int main() {
     std::string url;
     std::string directories;
 
-    std::cout << "Введите интернет-адрес файла в формате 'http://www.сервер.ги\\каталог1\\каталог2\\...имя.расширение': ";
+    std::cout << "Enter the internet address of the file in the format 'http://www.server.com\\directory1\\directory2\\...file.extension': ";
     std::cin.ignore();
     std::getline(std::cin, url);
 
@@ -28,7 +28,7 @@ int main() {
 
     int depth = countDirectoryDepth(directories);
 
-    std::cout << "Глубина вложенности подкаталогов: " << depth << std::endl;
+    std::cout << "Depth of nested subdirectories: " << depth << std::endl;
 
     return 0;
 }

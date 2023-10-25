@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-// Функция для определения, находятся ли два файла в одноименных подкаталогах
+// Function to determine if two files are in the same subdirectories
 bool areInSameSubdirectories(const std::string& url1, const std::string& url2) {
     size_t serverEnd1 = url1.find("://");
     size_t serverEnd2 = url2.find("://");
@@ -10,7 +10,7 @@ bool areInSameSubdirectories(const std::string& url1, const std::string& url2) {
 
     if (serverEnd1 == std::string::npos || serverEnd2 == std::string::npos ||
         lastBackslash1 == std::string::npos || lastBackslash2 == std::string::npos) {
-        // Один из путей не содержит каталогов
+        // One of the paths does not contain directories
         return false;
     }
 
@@ -23,17 +23,17 @@ bool areInSameSubdirectories(const std::string& url1, const std::string& url2) {
 int main() {
     std::string url1, url2;
 
-    std::cout << "Введите первый интернет-адрес файла: ";
+    std::cout << "Enter the first internet address of the file: ";
     std::cin.ignore();
     std::getline(std::cin, url1);
 
-    std::cout << "Введите второй интернет-адрес файла: ";
+    std::cout << "Enter the second internet address of the file: ";
     std::getline(std::cin, url2);
 
     if (areInSameSubdirectories(url1, url2)) {
-        std::cout << "Оба файла находятся в одноименных подкаталогах." << std::endl;
+        std::cout << "Both files are in the same subdirectories." << std::endl;
     } else {
-        std::cout << "Файлы находятся в разных подкаталогах." << std::endl;
+        std::cout << "The files are in different subdirectories." << std::endl;
     }
 
     return 0;
